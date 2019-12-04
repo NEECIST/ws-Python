@@ -30,7 +30,6 @@ def colocar_peca_no_tabuleiro(tabuleiro, col, player, linha):
 def vitoria(tabuleiro, linha, coluna):
     pass
 
-
 def desenhar_tabuleiro(tabuleiro, janela, altura):
     for c in range(NUM_COLUNAS):
         for l in range(NUM_LINHAS):
@@ -48,7 +47,22 @@ def desenhar_tabuleiro(tabuleiro, janela, altura):
 
 def main():
 
+    while not(game_over):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEMOTION:
+                posx = event.pos[0]
+                pygame.draw.rect(janela, PRETO, (0, 0, largura, MEDIDA_POR_QUADRADO))
+                if vez_de == 0:
+                    pygame.draw.circle(janela, PECA1, (posx, int(MEDIDA_POR_QUADRADO/2)), RAIO)
+                else:
+                    pygame.draw.circle(janela, PECA2, (posx, int(MEDIDA_POR_QUADRADO/2)), RAIO)
+                pygame.display.update()
+
+
         if game_over:
+            time.sleep(1)
             time_start = time.time()
             #print(time_start)
             pygame.draw.rect(janela, PRETO, (int((largura-5*MEDIDA_POR_QUADRADO)/2), int((altura-MEDIDA_POR_QUADRADO)/2), 5*MEDIDA_POR_QUADRADO, MEDIDA_POR_QUADRADO))

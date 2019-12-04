@@ -154,7 +154,6 @@ def main():
                     pygame.draw.circle(janela, PECA2, (posx, int(MEDIDA_POR_QUADRADO/2)), RAIO)
                 pygame.display.update()
 
-
             if event.type == pygame.MOUSEBUTTONDOWN :
                 posx = event.pos[0]
                 col = int(math.floor(posx/MEDIDA_POR_QUADRADO))
@@ -185,6 +184,7 @@ def main():
                 #imprimir_tabuleiro(tabuleiro)
 
         if game_over:
+            time.sleep(1)
             time_start = time.time()
             #print(time_start)
             pygame.draw.rect(janela, PRETO, (int((largura-5*MEDIDA_POR_QUADRADO)/2), int((altura-MEDIDA_POR_QUADRADO)/2), 5*MEDIDA_POR_QUADRADO, MEDIDA_POR_QUADRADO))
